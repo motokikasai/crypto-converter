@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1 class="m-5">Crypto-Rate</h1>
+      <form>
+        <div class="input crypto">
+          <div class="m-5 row">
+            <span class="bg-primary" for="crypto">Crypto-currency</span>
+            <select name="crypto" id="crypto">
+              <option value="" disabled selected hidden>choose...</option>
+              <option value="btc">BTC</option>
+              <option value="eos">EOS</option>
+              <option value="xrp">XRP</option>
+            </select>
+          </div>
+          <div class="m-5">
+            <input type="text" />
+          </div>
+        </div>
+
+        <div class="input currency">
+          <div class="m-5 row">
+            <span class="bg-danger" for="currency">Currency</span>
+            <select name="crypto" id="crypto">
+              <option value="" disabled selected hidden>choose...</option>
+              <option value="euro">EURO</option>
+              <option value="dollar">USD</option>
+              <option value="yen">YEN</option>
+            </select>
+          </div>
+
+          <div class="m-5">
+            <input type="text" disabled />
+          </div>
+
+          <div class="m-5">
+            <button class="bg-primary text-white">Convert</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
