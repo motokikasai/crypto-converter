@@ -6,4 +6,36 @@ import "bootstrap/scss/bootstrap.scss";
 
 // \/ All of your javascript should go here \/
 
-const baseURL = "https://api.cryptonator.com/api/ticker/btc-usd";
+document.querySelector("button").addEventListener("click", e => {
+  e.preventDefault();
+
+  const selectedCurrencyValue = document.querySelector(".currency").children;
+  const currencyValue = selectedCurrencyValue.selected.value;
+  console.log(currencyValue);
+
+  const cryptoInput = document.querySelector(".crypto-input");
+
+  let toNumber = parseInt(cryptoInput.value);
+
+  if (typeof toNumber === "number") {
+    console.log(toNumber);
+  } else {
+    console.log("NaN!!!");
+  }
+
+  // fetch("https://api.cryptonator.com/api/ticker/btc-eur")
+  //   .then(res => {
+  //     return res.json();
+  //   })
+  //   .then(data => {
+  //     console.log(data.ticker.price);
+  //   });
+});
+
+// fetch("https://api.cryptonator.com/api/ticker/btc-usd")
+//   .then(res => {
+//     return res.json();
+//   })
+//   .then(data => {
+//     console.log(data.ticker.price);
+//   });
