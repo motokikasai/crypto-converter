@@ -33,6 +33,8 @@ document.querySelector("button").addEventListener("click", e => {
       const currencyOutput = document.querySelector(".currency-output");
       if (isNaN(toNumber)) {
         console.error("NaN!!!");
+
+        currencyOutput.value = "Error: Please type in numbers above.";
       } else {
         console.log(toNumber * data.ticker.price);
 
