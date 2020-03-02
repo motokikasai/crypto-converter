@@ -9,33 +9,35 @@ import "bootstrap/scss/bootstrap.scss";
 document.querySelector("button").addEventListener("click", e => {
   e.preventDefault();
 
-  const selectedCurrencyValue = document.querySelector(".currency").children;
-  const currencyValue = selectedCurrencyValue.selected.value;
-  console.log(currencyValue);
+  const cryptoOptionList = document.getElementById("crypto");
+  const cryptoSelectedItem = cryptoOptionList.selectedOptions;
+  console.log(cryptoSelectedItem[0].dataset.crypto);
+  const cryptoChoice = cryptoSelectedItem[0].dataset.crypto;
 
-  const cryptoInput = document.querySelector(".crypto-input");
+  const currencyOptionList = document.getElementById("currency");
+  const currencySelectedItem = currencyOptionList.selectedOptions;
+  console.log(currencySelectedItem[0].dataset.currency);
+  const currencyChoice = currencySelectedItem[0].dataset.currency;
 
-  let toNumber = parseInt(cryptoInput.value);
+  fetch(
+    `https://api.cryptonator.com/api/ticker/${cryptoChoice}-${currencyChoice}`
+  )
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      console.log(data.ticker.price);
 
-  if (typeof toNumber === "number") {
-    console.log(toNumber);
-  } else {
-    console.log("NaN!!!");
-  }
+      const cryptoInput = document.querySelector(".crypto-input");
+      const toNumber = parseInt(cryptoInput.value);
+      const currencyOutput = document.querySelector(".currency-output");
+      if (isNaN(toNumber)) {
+        console.error("NaN!!!");
+      } else {
+        console.log(toNumber * data.ticker.price);
 
-  // fetch("https://api.cryptonator.com/api/ticker/btc-eur")
-  //   .then(res => {
-  //     return res.json();
-  //   })
-  //   .then(data => {
-  //     console.log(data.ticker.price);
-  //   });
+        currencyOutput.value = toNumber * data.ticker.price;
+        // toNumber * data.ticker.price
+      }
+    });
 });
-
-// fetch("https://api.cryptonator.com/api/ticker/btc-usd")
-//   .then(res => {
-//     return res.json();
-//   })
-//   .then(data => {
-//     console.log(data.ticker.price);
-//   });

@@ -16,9 +16,9 @@
             <span class="title bg-primary" for="crypto">Crypto-currency</span>
             <select class="crypto" name="crypto" id="crypto">
               <option value="" disabled selected hidden>choose...</option>
-              <option value="btc">BTC</option>
-              <option value="eos">EOS</option>
-              <option value="xrp">XRP</option>
+              <option value="btc" data-crypto="btc">BTC</option>
+              <option value="eos" data-crypto="eos">EOS</option>
+              <option value="xrp" data-crypto="xrp">XRP</option>
             </select>
           </div>
           <div class="m-5">
@@ -31,14 +31,14 @@
             <span class="title bg-danger" for="currency">Currency</span>
             <select class="currency" name="currency" id="currency">
               <option value="" disabled selected hidden>choose...</option>
-              <option value="euro">EUR</option>
-              <option value="dollar">USD</option>
-              <option value="yen">JPY</option>
+              <option value="euro" data-currency="eur">EUR</option>
+              <option value="dollar" data-currency="usd">USD</option>
+              <option value="yen" data-currency="jpy">JPY</option>
             </select>
           </div>
 
           <div class="m-5">
-            <input type="text" disabled />
+            <input type="text" disabled class="currency-output" />
           </div>
 
           <div class="m-5">
